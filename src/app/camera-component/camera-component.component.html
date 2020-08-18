@@ -1,11 +1,15 @@
 <h1>{{ title }}</h1>
 <h2> Test app in server </h2>
+<ul>
+    <app-photo *ngFor="let photo of photos" [namePhoto]="photo"></app-photo>
+</ul>
 <div>
-    <input type="file" accept="image/*" capture="camera" id="camera" class="inputget">
+    <!-- <input type="file" accept="image/*" capture="camera" id="camera" class="inputget" > -->
+    <input type="file" accept="image/*" capture="camera" class="inputget" (change)="onChange($event, photo)" #camera >
 </div>
 <div class="container-photo">
-    <img id="photo" class="photo">
+    <img id="photo" class="photo" #photo>
 </div>
 <div class="footer">
-    <button id="open" type="button" class="btn icon glyphicon glyphicon-phone-alt"> Touch </button>
+    <button id="open" type="button" class="btn icon glyphicon glyphicon-phone-alt" (click)="activeCamera(camera)"> Touch </button>
 </div>
