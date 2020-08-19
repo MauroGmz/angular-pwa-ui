@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { Employee } from './models/employee';
 
+import { DataService } from './data.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +19,12 @@ export class AppComponent {
   ];
 
   selectedEmployee: Employee = new Employee();
+
+  constructor(private dataService: DataService) {
+    this.dataService.getData().subscribe(data => {
+      console.log(data);
+    });
+  }
 
   openForEdit(employee: Employee) {
     this.selectedEmployee = employee;
@@ -36,5 +44,7 @@ export class AppComponent {
       this.selectedEmployee = new Employee();
     }
   }
+
+  posts = [];
 
 }
