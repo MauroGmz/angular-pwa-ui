@@ -13,6 +13,6 @@ export class DataService {
   }
 
   getData() {
-    return this.httpClient.get<Post[]>('https://jsonplaceholder.typecode.com/posts');
+    //return this.httpClient.get<Post[]>('https://jsonplaceholder.typecode.com/posts');
   }
 }
