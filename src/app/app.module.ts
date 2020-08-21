@@ -11,19 +11,26 @@ import { environment } from '../environments/environment';
 
 import { DataService } from './data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CrudComponentComponent } from './crud-component/crud-component.component';
+
+import { MaterialModule } from './material.module';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponentComponent,
-    PhotoComponent
+    PhotoComponent,
+    CrudComponentComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
